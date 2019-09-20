@@ -43,12 +43,9 @@ describe('server.js', () => {
       const hash = bcrypt.hashSync(user.password, 10)
       user.password = hash
 
-            
-
       expect(user.password).toBe(hash)
     })
     
-
   })
 
   describe('GET /api/jokes with no token', () => {
@@ -70,55 +67,3 @@ describe('server.js', () => {
   })
 
 })
-
-function generateToken(user) {
-  const payload = {
-    username: user.username
-  }
-  const options = {
-    expiresIn: '1d'
-  }
-  return jwt.sign(payload, secrets.jwtSecret, options)
-}
-
-
-
-
-///////////////////////////////////////////////////
-
-
-
-// const request = require('supertest');
-// const server = require('./server.js');
-
-
-// describe('server.js', () => {
-
-//   beforeEach(async () => {
-//     await db('users').truncate();
-//   })
-
-//   describe('POST /register', () => {
-//     // test 1
-//     it('saves to DB', async () => {
-
-//     })
-//   })
-//     // test 2
-
-
-//   describe('POST /login', () => {
-//     // test 1
-
-//     // test 2
-
-//   })
-
-//   describe('GET /api/jokes', () => {
-//     // test 1
-
-//     // test 2
-
-//   })
-
-// })
